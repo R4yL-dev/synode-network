@@ -1,0 +1,224 @@
+:root {
+    --clr-bg-deep: #0c0b0e;
+    --clr-bg: #111013;
+    --clr-bg-surface: #1a191d;
+    --clr-border: #2a282e;
+    --clr-text: #e8e4da;
+    --clr-text-muted: #8f8a80;
+    --clr-comment: #6a9955;
+
+    --gutter: 0.5rem;
+
+    --space-xs: 0.5rem;
+    --space-s: 1rem;
+    --space-m: 1.5rem;
+    --space-l: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Space Grotesk";
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 1.125rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+strong,
+b {
+    font-weight: 700;
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+body {
+    font-family: "Inter";
+    line-height: 1.5;
+    color: var(--clr-text);
+    background-color: var(--clr-bg);
+}
+
+header,
+main,
+footer {
+    padding-inline: var(--gutter);
+}
+
+header,
+footer {
+    padding-block: var(--space-xs);
+}
+
+header {
+    border-bottom: 1px solid var(--clr-border);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-l);
+    padding-block: var(--space-s) var(--space-l);
+}
+
+footer {
+    color: var(--clr-text-muted);
+    border-top: 1px solid var(--clr-border);
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+section h3 {
+    margin-top: var(--space-s);
+}
+
+.terminal {
+    font-family: "Fira Code", monospace;
+    background-color: var(--clr-bg-deep);
+    padding: var(--space-xs);
+    border-radius: 6px;
+    border: 1px solid var(--clr-border);
+    overflow-x: auto;
+}
+
+.terminal code {
+    display: block;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.terminal .prompt {
+    color: var(--clr-text-muted);
+    font-weight: 400;
+    user-select: none;
+}
+
+.terminal .comment {
+    color: var(--clr-comment);
+    user-select: none;
+}
+
+footer .meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-xs) var(--space-m);
+    font-size: 0.875rem;
+}
+
+/* ---------- Fonts ----------
+   Fichiers générés par tools/build-fonts.sh à partir des .ttf sources.
+   Chaque famille est déclarée deux fois :
+     - "-full"  : police complète, sans unicode-range. Déclarée en premier.
+     - subset   : latin uniquement, avec unicode-range. Déclarée en dernier,
+                  donc prioritaire pour les caractères latins.
+   Le navigateur ne télécharge que les fichiers dont il a besoin : sur une
+   page en anglais, seuls les subsets partent ; la version complète n'est
+   récupérée que si un caractère hors latin (cyrillique, grec, math...)
+   est affiché. */
+
+/* Inter */
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter/Inter-Variable-full.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter/Inter-Variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+        U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+2000-206F,
+        U+20AC, U+2122, U+2190-2199, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Inter Italic */
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter/Inter-Italic-Variable-full.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter/Inter-Italic-Variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+        U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+2000-206F,
+        U+20AC, U+2122, U+2190-2199, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Space Grotesk */
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("../fonts/Space_Grotesk/SpaceGrotesk-Variable-full.woff2") format("woff2");
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("../fonts/Space_Grotesk/SpaceGrotesk-Variable.woff2") format("woff2");
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+        U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+2000-206F,
+        U+20AC, U+2122, U+2190-2199, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Fira Code */
+@font-face {
+    font-family: "Fira Code";
+    src: url("../fonts/Fira_Code/FiraCode-Variable-full.woff2") format("woff2");
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fira Code";
+    src: url("../fonts/Fira_Code/FiraCode-Variable.woff2") format("woff2");
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+        U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+2000-206F,
+        U+20AC, U+2122, U+2190-2199, U+2212, U+2215, U+FEFF, U+FFFD;
+}

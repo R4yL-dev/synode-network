@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Synode Network</title>
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="logo">Synode</h1>
+    </header>
+    <main>
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>
+                Synode is a Bitcoin Core full node operated as a bridge between transports. It keeps peers on clearnet,
+                Tor and I2P simultaneously and relays blocks and transactions across all three.
+            </p>
+            <p>
+                Most reachable nodes speak a single transport, and nearly all of them are clearnet-only. Tor and I2P
+                depend on the small set of multi-homed peers that carry data between networks. Without them, those
+                networks drift toward partitions of their own.
+            </p>
+            <p>
+                No company behind it. One operator, spare hardware, time. Two numbers matter: uptime, and the number of
+                networks connected.
+            </p>
+            <p>
+                The node serves BIP 157/158 compact block filters to light clients on every transport it listens on.
+                Point a Neutrino wallet at it and validate against a node you did not have to run yourself.
+            </p>
+        </section>
+        <section id="endpoints">
+            <h2>Network Endpoints</h2>
+            <p>One node, three transports. Add whichever yours can reach.</p>
+            <h3>Clearnet</h3>
+            <div class="terminal">
+                <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode synode.network:8333</code>
+                <code class="comment">// OR</code>
+                <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode 179.237.108.188:8333</code>
+            </div>
+            <h3>TOR</h3>
+            <div class="terminal">
+                <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode synodebtc5c3mwyxf6vbaqoxkjlq4reukpsdmkktpkmjtjxq7qwa6rqd.onion:8333</code>
+            </div>
+            <h3>I2P</h3>
+            <div class="terminal">
+                <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode synodebtcnalwcszm5jnqrpdflyaq2w4wnpruxnaui4s5oicnl2q.b32.i2p:0</code>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <ul class="meta">
+            <li>Last update: <time datetime="2026-08-28">28.08.2026</time></li>
+            <li>Version: 1.0</li>
+        </ul>
+    </footer>
+</body>
+
+</html>
