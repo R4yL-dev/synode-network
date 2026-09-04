@@ -46,9 +46,12 @@
 <body>
     <header>
         <h1 id="logo">Synode</h1>
-        <a href="#stats" class="status" data-state="ok">
+        <a href="#stats" class="status" data-state="unknown">
             <span class="status-dot" aria-hidden="true"></span>
-            <span class="status-label">Online</span>
+            <span class="status-label" data-stat-show="ok" hidden>Online</span>
+            <span class="status-label" data-stat-show="degraded" hidden>Degraded</span>
+            <span class="status-label" data-stat-show="offline" hidden>Offline</span>
+            <span class="status-label" data-stat-show="unknown">Unknown</span>
         </a>
     </header>
     <main>
@@ -92,32 +95,36 @@
         </section>
         <section id="stats">
             <h2>Stats</h2>
+            <p class="stale" data-stat-show="stale" hidden>No news from the node for more than an hour. The numbers
+                below are the last ones received.</p>
             <section>
                 <h3>Node</h3>
                 <dl>
-                    <dt>Version</dt>
-                    <dd>31.1.0</dd>
-                    <dt>Uptime</dt>
-                    <dd>4d 0h</dd>
                     <dt>Status</dt>
-                    <dd>Good</dd>
-                    <dt>Degraded reason</dt>
-                    <dd>-</dd>
+                    <dd data-stat="state">-</dd>
+                    <dt data-stat-show="degraded" hidden>Degraded reason</dt>
+                    <dd data-stat-show="degraded" data-stat="degraded_reasons" hidden>-</dd>
+                    <dt>Version</dt>
+                    <dd data-stat="version">-</dd>
+                    <dt>Uptime</dt>
+                    <dd data-stat="uptime">-</dd>
                 </dl>
             </section>
             <section>
                 <h3>Chain</h3>
                 <dl>
                     <dt>Height</dt>
-                    <dd>915000</dd>
+                    <dd data-stat="height">-</dd>
                     <dt>Headers</dt>
-                    <dd>-</dd>
+                    <dd data-stat="headers">-</dd>
                     <dt>Tip hash</dt>
-                    <dd>-</dd>
+                    <dd data-stat="tip_hash_short">-</dd>
+                    <dt>Tip age</dt>
+                    <dd data-stat="tip_age">-</dd>
                     <dt>Tip time</dt>
-                    <dd>1756994000</dd>
+                    <dd data-stat="tip_time">-</dd>
                     <dt>Progress</dt>
-                    <dd>0.9999999</dd>
+                    <dd data-stat="progress">-</dd>
                 </dl>
             </section>
             <section>
@@ -128,54 +135,74 @@
                             <th scope="col"></th>
                             <th scope="col">In</th>
                             <th scope="col">Out</th>
+                            <th scope="col">Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th scope="row">IPv4</th>
-                            <td>12</td>
-                            <td>4</td>
+                            <td data-stat="peers_ipv4_in">-</td>
+                            <td data-stat="peers_ipv4_out">-</td>
+                            <td data-stat="peers_ipv4">-</td>
                         </tr>
                         <tr>
                             <th scope="row">Onion</th>
-                            <td>30</td>
-                            <td>4</td>
+                            <td data-stat="peers_onion_in">-</td>
+                            <td data-stat="peers_onion_out">-</td>
+                            <td data-stat="peers_onion">-</td>
                         </tr>
                         <tr>
                             <th scope="row">I2P</th>
-                            <td>4</td>
-                            <td>2</td>
+                            <td data-stat="peers_i2p_in">-</td>
+                            <td data-stat="peers_i2p_out">-</td>
+                            <td data-stat="peers_i2p">-</td>
                         </tr>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th scope="row">Total</th>
+                            <td data-stat="peers_in">-</td>
+                            <td data-stat="peers_out">-</td>
+                            <td data-stat="peers">-</td>
+                        </tr>
+                    </tfoot>
                 </table>
             </section>
             <section>
                 <h3>Mempool</h3>
                 <dl>
                     <dt>Tx</dt>
-                    <dd>41000</dd>
+                    <dd data-stat="mempool_tx">-</dd>
                     <dt>Bytes</dt>
-                    <dd>92000000</dd>
+                    <dd data-stat="mempool_size">-</dd>
                     <dt>Min fee</dt>
-                    <dd>1.0</dd>
+                    <dd data-stat="mempool_minfee">-</dd>
                 </dl>
             </section>
             <section>
                 <h3>Fees</h3>
                 <dl>
                     <dt>2 blocks</dt>
-                    <dd>3.1</dd>
+                    <dd data-stat="fee_2">-</dd>
                     <dt>6 blocks</dt>
-                    <dd>2.2</dd>
+                    <dd data-stat="fee_6">-</dd>
                     <dt>144 blocks</dt>
-                    <dd>1.0</dd>
+                    <dd data-stat="fee_144">-</dd>
                 </dl>
+            </section>
+            <section>
+                <h3>Services</h3>
+                <ul class="services">
+                    <li data-stat-show="txindex">txindex</li>
+                    <li data-stat-show="blockfilters">blockfilters</li>
+                    <li data-stat-show="archival">archival</li>
+                </ul>
             </section>
         </section>
     </main>
     <footer>
         <ul class="meta">
-            <li>Last update: <time datetime="2026-09-04">04.09.2026</time></li>
+            <li>Last update: <span data-stat="last_update">-</span></li>
             <li>Version: 1.1</li>
         </ul>
     </footer>

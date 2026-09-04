@@ -13,6 +13,7 @@
     --clr-ok: var(--clr-green);
     --clr-warn: var(--clr-amber);
     --clr-err: var(--clr-red);
+    --clr-unknown: var(--clr-text-muted);
 
     --space-xs: 0.5rem;
     --space-s: 1rem;
@@ -23,6 +24,12 @@
     --col-text: 34rem;
     --col-term: 63rem;
     --content-max: calc(var(--col-text) + var(--space-l) + var(--col-term));
+}
+
+/* L'attribut hidden doit gagner sur tout display: posé par une classe
+   (ex. .services li en flex), sinon l'élément reste visible. */
+[hidden] {
+    display: none !important;
 }
 
 h1,
@@ -137,6 +144,10 @@ header {
     --status-clr: var(--clr-err);
 }
 
+.status[data-state="unknown"] {
+    --status-clr: var(--clr-unknown);
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -147,7 +158,7 @@ main {
 }
 
 #stats {
-    --stat-groups: 5;
+    --stat-groups: 6;
     --stat-gap: var(--space-m);
 
     display: grid;
@@ -159,8 +170,13 @@ main {
     align-items: start;
 }
 
-#stats>h2 {
+#stats>h2,
+#stats>.stale {
     grid-column: 1 / -1;
+}
+
+.stale {
+    color: var(--clr-warn);
 }
 
 #stats>section {
@@ -214,6 +230,46 @@ main {
 
 .peers td {
     padding-left: var(--space-s);
+}
+
+.peers tfoot th,
+.peers tfoot td {
+    border-top: 1px solid var(--clr-border);
+    padding-top: 0.375rem;
+}
+
+.peers tfoot th {
+    color: var(--clr-text);
+}
+
+.services {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-family: "Fira Code", monospace;
+}
+
+.services li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.services li::before {
+    content: "";
+    flex: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--clr-ok);
+}
+
+.services li[data-state="off"] {
+    color: var(--clr-text-muted);
+}
+
+.services li[data-state="off"]::before {
+    background-color: var(--clr-unknown);
 }
 
 footer {
