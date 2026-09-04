@@ -5,15 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Synode Network</title>
+    <title>Synode Network — Bitcoin full node on clearnet, Tor and I2P</title>
+    <meta name="description"
+        content="Synode is a public Bitcoin Core full node bridging clearnet, Tor and I2P. Add it as a peer or point a Neutrino wallet at its BIP 157/158 block filters.">
+    <link rel="canonical" href="https://synode.network/">
+    <meta name="theme-color" content="#111013">
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Synode Network">
+    <meta property="og:url" content="https://synode.network/">
+    <meta property="og:title" content="Synode Network — Bitcoin full node on clearnet, Tor and I2P">
+    <meta property="og:description"
+        content="Public Bitcoin Core node bridging clearnet, Tor and I2P. Peer endpoints, compact block filters and live stats.">
+    <meta property="og:image" content="https://synode.network/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Synode: a Bitcoin full node bridging clearnet, Tor and I2P">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
 
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Synode Network",
+        "url": "https://synode.network/",
+        "description": "Public Bitcoin Core full node bridging clearnet, Tor and I2P. Serves BIP 157/158 compact block filters to light clients.",
+        "inLanguage": "en"
+    }
+    </script>
 </head>
 
 <body>
     <header>
         <h1 id="logo">Synode</h1>
+        <a href="#stats" class="status" data-state="ok">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Online</span>
+        </a>
     </header>
     <main>
         <section id="overview">
@@ -54,11 +90,93 @@
                 <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode synodebtcnalwcszm5jnqrpdflyaq2w4wnpruxnaui4s5oicnl2q.b32.i2p:0</code>
             </div>
         </section>
+        <section id="stats">
+            <h2>Stats</h2>
+            <section>
+                <h3>Node</h3>
+                <dl>
+                    <dt>Version</dt>
+                    <dd>31.1.0</dd>
+                    <dt>Uptime</dt>
+                    <dd>4d 0h</dd>
+                    <dt>Status</dt>
+                    <dd>Good</dd>
+                    <dt>Degraded reason</dt>
+                    <dd>-</dd>
+                </dl>
+            </section>
+            <section>
+                <h3>Chain</h3>
+                <dl>
+                    <dt>Height</dt>
+                    <dd>915000</dd>
+                    <dt>Headers</dt>
+                    <dd>-</dd>
+                    <dt>Tip hash</dt>
+                    <dd>-</dd>
+                    <dt>Tip time</dt>
+                    <dd>1756994000</dd>
+                    <dt>Progress</dt>
+                    <dd>0.9999999</dd>
+                </dl>
+            </section>
+            <section>
+                <h3>Peers</h3>
+                <table class="peers">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">In</th>
+                            <th scope="col">Out</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">IPv4</th>
+                            <td>12</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Onion</th>
+                            <td>30</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">I2P</th>
+                            <td>4</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h3>Mempool</h3>
+                <dl>
+                    <dt>Tx</dt>
+                    <dd>41000</dd>
+                    <dt>Bytes</dt>
+                    <dd>92000000</dd>
+                    <dt>Min fee</dt>
+                    <dd>1.0</dd>
+                </dl>
+            </section>
+            <section>
+                <h3>Fees</h3>
+                <dl>
+                    <dt>2 blocks</dt>
+                    <dd>3.1</dd>
+                    <dt>6 blocks</dt>
+                    <dd>2.2</dd>
+                    <dt>144 blocks</dt>
+                    <dd>1.0</dd>
+                </dl>
+            </section>
+        </section>
     </main>
     <footer>
         <ul class="meta">
-            <li>Last update: <time datetime="2026-08-28">28.08.2026</time></li>
-            <li>Version: 1.0</li>
+            <li>Last update: <time datetime="2026-09-04">04.09.2026</time></li>
+            <li>Version: 1.1</li>
         </ul>
     </footer>
 </body>

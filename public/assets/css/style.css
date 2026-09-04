@@ -5,7 +5,14 @@
     --clr-border: #2a282e;
     --clr-text: #e8e4da;
     --clr-text-muted: #8f8a80;
-    --clr-comment: #6a9955;
+    --clr-green: #6a9955;
+    --clr-amber: #c9984a;
+    --clr-red: #cf5f55;
+
+    --clr-comment: var(--clr-green);
+    --clr-ok: var(--clr-green);
+    --clr-warn: var(--clr-amber);
+    --clr-err: var(--clr-red);
 
     --space-xs: 0.5rem;
     --space-s: 1rem;
@@ -82,6 +89,52 @@ footer {
 
 header {
     border-bottom: 1px solid var(--clr-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-s);
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--clr-border);
+    border-radius: 999px;
+    background-color: var(--clr-bg-surface);
+    color: var(--clr-text);
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+.status:hover {
+    border-color: var(--clr-text-muted);
+}
+
+.status:focus-visible {
+    outline: 2px solid var(--clr-text-muted);
+    outline-offset: 2px;
+}
+
+.status-dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    background-color: var(--status-clr);
+    box-shadow: 0 0 6px var(--status-clr);
+}
+
+.status[data-state="ok"] {
+    --status-clr: var(--clr-ok);
+}
+
+.status[data-state="degraded"] {
+    --status-clr: var(--clr-warn);
+}
+
+.status[data-state="offline"] {
+    --status-clr: var(--clr-err);
 }
 
 main {
@@ -91,6 +144,76 @@ main {
     padding-block: var(--space-s) var(--space-l);
 
     flex: 1;
+}
+
+#stats {
+    --stat-groups: 5;
+    --stat-gap: var(--space-m);
+
+    display: grid;
+    /* Jamais plus de colonnes que de groupes : le h2 en pleine largeur
+       empêche auto-fit de replier les pistes vides. */
+    grid-template-columns: repeat(auto-fit,
+            minmax(max(15rem, calc(100% / var(--stat-groups) - var(--stat-gap))), 1fr));
+    gap: var(--stat-gap);
+    align-items: start;
+}
+
+#stats>h2 {
+    grid-column: 1 / -1;
+}
+
+#stats>section {
+    border-top: 1px solid var(--clr-border);
+    padding-top: var(--space-xs);
+}
+
+#stats h3 {
+    margin-top: 0;
+}
+
+#stats dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--space-s);
+    row-gap: 0.25rem;
+}
+
+#stats dt {
+    color: var(--clr-text-muted);
+}
+
+#stats dd {
+    text-align: right;
+    font-family: "Fira Code", monospace;
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+}
+
+.peers {
+    width: 100%;
+}
+
+.peers th,
+.peers td {
+    padding-block: 0.125rem;
+}
+
+.peers th {
+    font-weight: 400;
+    color: var(--clr-text-muted);
+    text-align: left;
+}
+
+.peers td,
+.peers thead th:not(:first-child) {
+    text-align: right;
+    font-family: "Fira Code", monospace;
+    font-variant-numeric: tabular-nums;
+}
+
+.peers td {
+    padding-left: var(--space-s);
 }
 
 footer {
@@ -140,6 +263,28 @@ footer .meta {
     justify-content: space-between;
     gap: var(--space-xs) var(--space-m);
     font-size: 0.875rem;
+}
+
+@media (min-width: 69rem) {
+    main {
+        display: grid;
+        grid-template-columns: minmax(var(--col-text), 1fr) minmax(0, var(--col-term));
+        align-content: center;
+        justify-content: start;
+    }
+
+    #stats {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 100rem) {
+
+    header,
+    main,
+    footer {
+        padding-inline: max(var(--gutter), calc((100% - var(--content-max)) / 2));
+    }
 }
 
 /* ---------- Fonts ----------
@@ -231,22 +376,4 @@ footer .meta {
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
         U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+2000-206F,
         U+20AC, U+2122, U+2190-2199, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@media (min-width: 69rem) {
-    main {
-        display: grid;
-        grid-template-columns: minmax(var(--col-text), 1fr) minmax(0, var(--col-term));
-        align-content: center;
-        justify-content: start;
-    }
-}
-
-@media (min-width: 100rem) {
-
-    header,
-    main,
-    footer {
-        padding-inline: max(var(--gutter), calc((100% - var(--content-max)) / 2));
-    }
 }
