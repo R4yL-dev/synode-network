@@ -80,17 +80,19 @@
             <p>One node, three transports. Add whichever yours can reach.</p>
             <h3>Clearnet</h3>
             <div class="terminal">
-                <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode synode.network:8333</code>
+                <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode "synode.network:8333" "add"</code>
                 <code class="comment">// OR</code>
-                <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode 179.237.108.188:8333</code>
+                <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode "179.237.108.188:8333" "add"</code>
+                <code class="comment">// OR</code>
+                <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode "[2001:db8::8a2e:370:7334]:8333" "add"</code>
             </div>
             <h3>TOR</h3>
             <div class="terminal">
-                <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode synodebtc5c3mwyxf6vbaqoxkjlq4reukpsdmkktpkmjtjxq7qwa6rqd.onion:8333</code>
+                <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode "synodebtc5c3mwyxf6vbaqoxkjlq4reukpsdmkktpkmjtjxq7qwa6rqd.onion:8333" "add"</code>
             </div>
             <h3>I2P</h3>
             <div class="terminal">
-                <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode synodebtcnalwcszm5jnqrpdflyaq2w4wnpruxnaui4s5oicnl2q.b32.i2p:0</code>
+                <code><span class="prompt">user@node:~$ </span>bitcoin-cli addnode "synodebtcnalwcszm5jnqrpdflyaq2w4wnpruxnaui4s5oicnl2q.b32.i2p:0" "add"</code>
             </div>
         </section>
         <section id="stats">
@@ -140,6 +142,12 @@
                             <td data-stat="peers_ipv4_in">-</td>
                             <td data-stat="peers_ipv4_out">-</td>
                             <td data-stat="peers_ipv4">-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">IPv6</th>
+                            <td data-stat="peers_ipv6_in">-</td>
+                            <td data-stat="peers_ipv6_out">-</td>
+                            <td data-stat="peers_ipv6">-</td>
                         </tr>
                         <tr>
                             <th scope="row">Onion</th>
@@ -199,7 +207,7 @@
     <footer>
         <ul class="meta">
             <li>Last update: <span data-stat="last_update">-</span></li>
-            <li>Version: 1.1</li>
+            <li>Version: 1.2</li>
         </ul>
     </footer>
 </body>

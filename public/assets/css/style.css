@@ -22,7 +22,9 @@
 
     --gutter: clamp(1rem, 4vw, 4rem);
     --col-text: 34rem;
-    --col-term: 63rem;
+    /* Doit contenir la plus longue ligne de .terminal sans repli :
+       108 caractères × 0,6 em (Fira Code) = 64,8 rem + padding. */
+    --col-term: 66rem;
     --content-max: calc(var(--col-text) + var(--space-l) + var(--col-term));
 }
 
